@@ -1,0 +1,138 @@
+﻿<Window x:Class="ModernDesign.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:viewModel="clr-namespace:ModernDesign.MVVM.ViewModel"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ModernDesign"
+        mc:Ignorable="d"
+        Height="600"
+        Width="920"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        AllowsTransparency="True">
+    <Window.DataContext>
+        <viewModel:MainViewModel />
+    </Window.DataContext>
+    <Border Background="#272537"
+            CornerRadius="20">
+
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="75" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <TextBlock Text="Prova"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Left"
+                       Foreground="White"
+                       FontSize="22"
+                       Margin="20,0,0,0"
+                       FontFamily="/Fonts/#Poppins" />
+
+            <StackPanel Grid.Row="1">
+
+                <RadioButton Content="Home"
+                             Height="50"
+                             GroupName="view"
+                             Foreground="White"
+                             FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}"
+                             Command="{Binding HomeViewCommand}" />
+
+                <RadioButton Content="Discovery"
+                             Height="50"
+                             GroupName="view"
+                             Foreground="White"
+                             FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}"
+                             Command="{Binding DiscoveryViewCommand}" />
+                <RadioButton Content="Note"
+                             Height="50"
+                             GroupName="view"
+                             Foreground="White"
+                             FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}"
+                             Command="{Binding NoteViewCommand}" />
+
+            </StackPanel>
+
+
+            <TextBox VerticalContentAlignment="Center"
+                     HorizontalAlignment="Left"
+                     Margin="5"
+                     Grid.Column="1"
+                     Style="{StaticResource ModernTextBox}"
+                     Width="195" />
+            <Border Width="45"
+                    Height="45"
+                    Grid.Column="1"
+                    CornerRadius="10"
+                    Margin="45,0,0,0"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top">
+
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0"
+                                         EndPoint="1,2">
+                        <GradientStop Color="#9A1212"
+                                      Offset="0.0" />
+                        <GradientStop Color="#ffb73a"
+                                      Offset="1" />
+                    </LinearGradientBrush>
+
+                </Border.Background>
+
+            </Border>
+            <Button Name="btnClose"
+                    Grid.Column="1"
+                    Click="ButtonOnClick">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius"
+                                Value="10" />
+                    </Style>
+                </Button.Resources>
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Width"
+                                Value="45" />
+                        <Setter Property="Height"
+                                Value="45" />
+                        <Setter Property="HorizontalAlignment"
+                                Value="Right" />
+                        <Setter Property="VerticalAlignment"
+                                Value="Top" />
+                        <Setter Property="BorderBrush"
+                                Value="Transparent" />
+                        <Setter Property="Background"
+                                Value="Transparent" />
+
+                    </Style>
+                </Button.Style>
+
+
+                <TextBlock  Text="X"
+                            FontSize="25"
+                            Foreground="#272537"
+                            FontWeight="Bold" />
+
+            </Button>
+
+            <ContentControl Grid.Row="1"
+                            Grid.Column="1"
+                            Margin="10"
+                            Content="{Binding CurrentView}" />
+
+
+
+        </Grid>
+    </Border>
+
+</Window>
