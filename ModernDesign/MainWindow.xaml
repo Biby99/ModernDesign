@@ -60,6 +60,13 @@
                              FontSize="14"
                              Style="{StaticResource MenuButtonTheme}"
                              Command="{Binding NoteViewCommand}" />
+                <RadioButton Content="Ricordi"
+                             Height="50"
+                             GroupName="view"
+                             Foreground="White"
+                             FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}"
+                             Command="{Binding RicordiViewCommand}" />
 
             </StackPanel>
 

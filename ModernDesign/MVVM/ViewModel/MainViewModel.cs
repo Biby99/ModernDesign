@@ -13,9 +13,12 @@ namespace ModernDesign.MVVM.ViewModel
         public RelayCommand HomeViewCommand { get; set; }
         public RelayCommand DiscoveryViewCommand { get; set; }
         public RelayCommand NoteViewCommand { get; set; }
+        public RelayCommand RicordiViewCommand { get; set; }
         public HomeViewModel HomeVM { get; set; }
         public DiscoveryViewModel DiscoveryVM { get; set; }
         public NoteViewModel NoteVM { get; set; }
+        public RicordiViewModel RicordiVM { get; set; }
+
         private object _currentView;
         public object CurrentView
         {
@@ -32,7 +35,7 @@ namespace ModernDesign.MVVM.ViewModel
             HomeVM = new HomeViewModel();
             DiscoveryVM = new DiscoveryViewModel();
             NoteVM = new NoteViewModel();
-
+            RicordiVM = new RicordiViewModel();
             CurrentView = HomeVM;
 
             HomeViewCommand = new RelayCommand(o =>
@@ -47,6 +50,10 @@ namespace ModernDesign.MVVM.ViewModel
             NoteViewCommand = new RelayCommand(o =>
             {
                 CurrentView = NoteVM;
+            });
+            RicordiViewCommand = new RelayCommand(o =>
+            {
+                CurrentView = RicordiVM;
             });
         }
 
